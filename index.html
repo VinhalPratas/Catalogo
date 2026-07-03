@@ -117,13 +117,13 @@ header{
     margin-bottom:10px;
 }
 .card h3{
-    font-size:15px;
+    font-size:14px;
     margin-bottom:6px;
     color:#333;
-    line-height:1.2;
-    height:36px;
+    line-height:1.3;
+    height:54px; /* Altura padronizada para até 3 linhas de texto sem quebrar o layout */
     display:-webkit-box;
-    -webkit-line-clamp:2;
+    -webkit-line-clamp:3;
     -webkit-box-orient:vertical;
     overflow:hidden;
 }
@@ -147,19 +147,16 @@ header{
 }
 .variacao-tamanho{
     margin-bottom:10px;
-    height:60px;
-    overflow:hidden;
+    height:55px;
 }
 .variacao-tamanho label{
     font-size:11px;
     color:#777;
     display:block;
     margin-bottom:3px;
-    line-height:1.25;
-    display:-webkit-box;
-    -webkit-line-clamp:2;
-    -webkit-box-orient:vertical;
-    overflow:hidden;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .variacao-tamanho select{
     width:100%;
@@ -183,15 +180,15 @@ header{
         margin-bottom:8px;
     }
     .card h3{
-        font-size:13px;
-        height:32px;
+        font-size:12px;
+        height:48px;
     }
     .status{
         font-size:10px;
         padding:3px 6px;
     }
     .variacao-tamanho{
-        height:56px;
+        height:50px;
     }
     .variacao-tamanho select{
         font-size:12px;
@@ -213,12 +210,6 @@ header{
     margin-bottom:10px;
     color:#000;
 }
-.old-price{
-    color:#777;
-    font-size:14px;
-    font-weight:600;
-    text-decoration:line-through;
-}
 .add-btn{
     width:100%;
     padding:10px;
@@ -233,93 +224,6 @@ header{
 }
 .add-btn:hover{
     background:#333;
-}
-.cart-fixed{
-    position:fixed;
-    bottom:20px;
-    left:50%;
-    transform:translateX(-50%);
-    background:#25D366;
-    color:#fff;
-    padding:14px 28px;
-    border-radius:50px;
-    font-weight:bold;
-    box-shadow:0 10px 25px rgba(0,0,0,0.15);
-    cursor:pointer;
-    z-index:999;
-}
-.modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.4);
-    backdrop-filter:blur(5px);
-    justify-content:center;
-    align-items:flex-end;
-    z-index:1000;
-}
-.modal-content{
-    background:#fff;
-    width:100%;
-    max-width:500px;
-    padding:20px;
-    border-radius:25px 25px 0 0;
-    max-height:85vh;
-    overflow-y:auto;
-}
-.item-carrinho{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:12px;
-    padding:12px 0;
-    border-bottom:1px solid #eee;
-    font-size:14px;
-}
-.item-carrinho button{
-    background:none;
-    border:none;
-    color:#c0392b;
-    cursor:pointer;
-    font-size:16px;
-    margin-left:10px;
-}
-.total{
-    font-weight:bold;
-    font-size:18px;
-    margin:20px 0;
-    display:flex;
-    justify-content:space-between;
-}
-.modal-content input,
-.modal-content textarea{
-    width:100%;
-    padding:12px;
-    border-radius:12px;
-    border:1px solid #ddd;
-    margin-bottom:10px;
-    font-family:inherit;
-}
-.btn-green{
-    width:100%;
-    padding:14px;
-    border-radius:14px;
-    border:none;
-    background:#25D366;
-    color:#fff;
-    font-weight:bold;
-    cursor:pointer;
-    font-size:16px;
-}
-.btn-gray{
-    width:100%;
-    padding:12px;
-    border-radius:12px;
-    border:none;
-    background:#eee;
-    margin-top:8px;
-    cursor:pointer;
-    font-size:14px;
 }
 </style>
 </head>
@@ -372,7 +276,7 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <h3>Anel Lua Cravejado</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
-            <label>Consulte os tamanhos disponíveis:</label>
+            <label>Tamanhos disponíveis:</label>
             <select onchange="atualizarPrecoProduto(this)">
                 <option value="" data-preco="40.00">R$ 40,00</option>
             </select>
@@ -386,7 +290,7 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <h3>Anel Letras Regulável</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
-            <label>Verificar disponibilidade:</label>
+            <label>Disponibilidade:</label>
             <select onchange="atualizarPrecoProduto(this)">
                 <option value="" data-preco="50.00">R$ 50,00</option>
             </select>
@@ -400,7 +304,7 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <h3>Anel Flor Cravejada Azul</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
-            <label>Consulte os tamanhos disponíveis:</label>
+            <label>Tamanhos disponíveis:</label>
             <select onchange="atualizarPrecoProduto(this)">
                 <option value="" data-preco="50.00">R$ 50,00</option>
             </select>
@@ -409,50 +313,54 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <button class="add-btn" onclick="addCarrinho(this)">Adicionar</button>
     </div>
 
-    <div class="card" data-categoria="brincos sob encomenda">
+    <div class="card" data-categoria="brincos">
         <img src="Brinco Zircônia 3mm Redondo.webp" alt="Brinco Zircônia 3mm Redondo">
         <h3>Brinco Zircônia 3mm Redondo</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
+            <label>Tamanho:</label>
             <select onchange="atualizarPrecoProduto(this)">
-                <option value="P" data-preco="20.00">R$ 20,00</option>
+                <option value="P" data-preco="20.00">3mm - R$ 20,00</option>
             </select>
         </div>
         <p class="price">R$ 20,00</p>
         <button class="add-btn" onclick="addCarrinho(this)">Adicionar</button>
     </div>
 
-    <div class="card" data-categoria="brincos sob encomenda">
-        <img src="Brinco Zircônia 6mm.webp" alt="Kit Argola Redonda">
+    <div class="card" data-categoria="brincos">
+        <img src="Brinco Zircônia 6mm.webp" alt="Brinco Zircônia 6mm">
         <h3>Brinco Zircônia 6mm</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
+            <label>Tamanho:</label>
             <select onchange="atualizarPrecoProduto(this)">
-                <option value="P" data-preco="25.00">R$ 25,00</option>
+                <option value="P" data-preco="25.00">6mm - R$ 25,00</option>
             </select>
         </div>
         <p class="price">R$ 25,00</p>
         <button class="add-btn" onclick="addCarrinho(this)">Adicionar</button>
     </div>
 
-    <div class="card" data-categoria="brincos sob encomenda">
-        <img src="Brinco Zircônia 10mm Quadrado.webp" alt="Kit Argola Redonda">
+    <div class="card" data-categoria="brincos">
+        <img src="Brinco Zircônia 10mm Quadrado.webp" alt="Brinco Zircônia 10mm Quadrado">
         <h3>Brinco Zircônia 10mm Quadrado</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
+            <label>Tamanho:</label>
             <select onchange="atualizarPrecoProduto(this)">
-                <option value="P" data-preco="45.00">R$ 45,00</option>
+                <option value="P" data-preco="45.00">10mm - R$ 45,00</option>
             </select>
         </div>
         <p class="price">R$ 45,00</p>
         <button class="add-btn" onclick="addCarrinho(this)">Adicionar</button>
     </div>
 
-    <div class="card" data-categoria="brincos sob encomenda">
-        <img src="Brinco Zircônia 8mm Redondo.webp" alt="Kit Argola Redonda">
+    <div class="card" data-categoria="brincos">
+        <img src="Brinco Zircônia 8mm Redondo.webp" alt="Brinco Zircônia 8mm Redondo">
         <h3>Brinco Zircônia 8mm Redondo</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
+            <label>Tamanho:</label>
             <select onchange="atualizarPrecoProduto(this)">
                 <option value="P" data-preco="40.00">8mm - R$ 40,00</option>
             </select>
@@ -462,23 +370,23 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
     </div>
 
     <div class="card" data-categoria="colares">
-        <img src="Colar Prata 925 Ponto de Luz coração.webp" alt="Kit Argola Redonda">
-        <h3>Colar Prata 925 Ponto de Luz coração</h3>
+        <img src="Colar Prata 925 Ponto de Luz coração.webp" alt="Colar Prata 925 Ponto de Luz coração">
+        <h3>Colar Prata 925 Ponto de Luz Coração</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
             <label>Selecione o Tamanho:</label>
             <select onchange="atualizarPrecoProduto(this)">
-                <option value="P" data-preco="110.00">Tamanho 50CM - R$ 110,00</option>
-                <option value="M" data-preco="130.00">Tamanho 60CM - R$ 130,00</option>
-                <option value="G" data-preco="140.00">Tamanho 70CM - R$ 140,00</option>
+                <option value="50cm" data-preco="110.00">50CM - R$ 110,00</option>
+                <option value="60cm" data-preco="130.00">60CM - R$ 130,00</option>
+                <option value="70cm" data-preco="140.00">70CM - R$ 140,00</option>
             </select>
         </div>
         <p class="price">R$ 110,00</p>
         <button class="add-btn" onclick="addCarrinho(this)">Adicionar</button>
     </div>
 
-    <div class="card" data-categoria="brincos sob encomenda">
-        <img src="Argola Redonda.webp" alt="Kit Argola Redonda">
+    <div class="card" data-categoria="brincos">
+        <img src="Argola Redonda.webp" alt="Argola Redonda">
         <h3>Argola Redonda</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
@@ -493,8 +401,8 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <button class="add-btn" onclick="addCarrinho(this)">Adicionar</button>
     </div>
 
-    <div class="card" data-categoria="brincos sob encomenda">
-        <img src="Argola Triângulo Fio Redondo.webp" alt="Anel Solitário Cristal">
+    <div class="card" data-categoria="brincos">
+        <img src="Argola Triângulo Fio Redondo.webp" alt="Argola Triângulo Fio Redondo">
         <h3>Argola Triângulo Fio Redondo</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
@@ -509,8 +417,8 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <button class="add-btn" onclick="addCarrinho(this)">Adicionar</button>
     </div>
 
-    <div class="card" data-categoria="brincos sob encomenda">
-        <img src="Argola Coração Fio Redondo.webp" alt="Anel Solitário Cristal">
+    <div class="card" data-categoria="brincos">
+        <img src="Argola Coração Fio Redondo.webp" alt="Argola Coração Fio Redondo">
         <h3>Argola Coração Fio Redondo</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
@@ -525,7 +433,7 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <button class="add-btn" onclick="addCarrinho(this)">Adicionar</button>
     </div>
 
-    <div class="card" data-categoria="brincos sob encomenda">
+    <div class="card" data-categoria="brincos">
         <img src="Argola Losango Fio Redondo.webp" alt="Argola Losango Fio Redondo">
         <h3>Argola Losango Fio Redondo</h3>
         <span class="status encomenda">Sob Encomenda</span>
@@ -541,8 +449,8 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <button class="add-btn" onclick="addCarrinho(this)">Adicionar</button>
     </div>
 
-    <div class="card" data-categoria="brincos sob encomenda">
-        <img src="Argola Redonda Torcida.webp" alt="Anel Solitário Cristal">
+    <div class="card" data-categoria="brincos">
+        <img src="Argola Redonda Torcida.webp" alt="Argola Redonda Torcida">
         <h3>Argola Redonda Torcida</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
@@ -557,8 +465,8 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <button class="add-btn" onclick="addCarrinho(this)">Adicionar</button>
     </div>
 
-    <div class="card" data-categoria="brincos sob encomenda">
-        <img src="Argola Quadrada Fio Quadrado.webp" alt="Anel Solitário Cristal">
+    <div class="card" data-categoria="brincos">
+        <img src="Argola Quadrada Fio Quadrado.webp" alt="Argola Quadrada Fio Quadrado">
         <h3>Argola Quadrada Fio Quadrado</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
@@ -573,8 +481,8 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <button class="add-btn" onclick="addCarrinho(this)">Adicionar</button>
     </div>
 
-    <div class="card" data-categoria="brincos sob encomenda">
-        <img src="Argola Coração Fio Quadrado.webp" alt="Anel Solitário Cristal">
+    <div class="card" data-categoria="brincos">
+        <img src="Argola Coração Fio Quadrado.webp" alt="Argola Coração Fio Quadrado">
         <h3>Argola Coração Fio Quadrado</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
@@ -589,8 +497,8 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <button class="add-btn" onclick="addCarrinho(this)">Adicionar</button>
     </div>
 
-    <div class="card" data-categoria="brincos sob encomenda">
-        <img src="Argola Coração Torcida.webp" alt="Anel Solitário Cristal">
+    <div class="card" data-categoria="brincos">
+        <img src="Argola Coração Torcida.webp" alt="Argola Coração Torcida">
         <h3>Argola Coração Torcida</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
@@ -605,8 +513,8 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <button class="add-btn" onclick="addCarrinho(this)">Adicionar</button>
     </div>
 
-    <div class="card" data-categoria="brincos sob encomenda">
-        <img src="Argola Redonda Detalhada.webp" alt="Anel Solitário Cristal">
+    <div class="card" data-categoria="brincos">
+        <img src="Argola Redonda Detalhada.webp" alt="Argola Redonda Detalhada">
         <h3>Argola Redonda Detalhada</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
@@ -621,8 +529,8 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <button class="add-btn" onclick="addCarrinho(this)">Adicionar</button>
     </div>
 
-    <div class="card" data-categoria="brincos sob encomenda">
-        <img src="Argola Gota Fio.webp" alt="Anel Solitário Cristal">
+    <div class="card" data-categoria="brincos">
+        <img src="Argola Gota Fio.webp" alt="Argola Gota Fio">
         <h3>Argola Gota Fio</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
@@ -637,8 +545,8 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <button class="add-btn" onclick="addCarrinho(this)">Adicionar</button>
     </div>
 
-    <div class="card" data-categoria="brincos sob encomenda">
-        <img src="Argola Lua Fio Quadrado.webp" alt="Anel Solitário Cristal">
+    <div class="card" data-categoria="brincos">
+        <img src="Argola Lua Fio Quadrado.webp" alt="Argola Lua Fio Quadrado">
         <h3>Argola Lua Fio Quadrado</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
@@ -652,130 +560,140 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <button class="add-btn" onclick="addCarrinho(this)">Adicionar</button>
     </div>
 
-    <div class="card" data-categoria="colares sob encomenda">
-        <img src="Choker Pingentes Estrela Ponto de Luz Colorido.webp" alt="Anel Solitário Cristal">
+    <div class="card" data-categoria="colares">
+        <img src="Choker Pingentes Estrela Ponto de Luz Colorido.webp" alt="Choker Pingentes Estrela Ponto de Luz Colorido">
         <h3>Choker Pingentes Estrela Ponto de Luz Colorido</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
+            <label>Tamanho:</label>
             <select onchange="atualizarPrecoProduto(this)">
-                <option value="40cm" data-preco="70.00">Tamanho 40cm - R$ 70,00</option>
+                <option value="40cm" data-preco="70.00">40cm - R$ 70,00</option>
             </select>
         </div>
         <p class="price">R$ 70,00</p>
         <button class="add-btn" onclick="addCarrinho(this)">Adicionar</button>
     </div>
 
-    <div class="card" data-categoria="colares sob encomenda">
-        <img src="Choker Pingentes Coração Vazado e Fechado Pontos de Luz Coloridos.webp" alt="Anel Solitário Cristal">
+    <div class="card" data-categoria="colares">
+        <img src="Choker Pingentes Coração Vazado e Fechado Pontos de Luz Coloridos.webp" alt="Choker Coração">
         <h3>Choker Pingentes Coração Vazado e Fechado Pontos de Luz Coloridos</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
+            <label>Tamanho:</label>
             <select onchange="atualizarPrecoProduto(this)">
-                <option value="40cm" data-preco="70.00">Tamanho 40cm - R$ 70,00</option>
+                <option value="40cm" data-preco="70.00">40cm - R$ 70,00</option>
             </select>
         </div>
         <p class="price">R$ 70,00</p>
         <button class="add-btn" onclick="addCarrinho(this)">Adicionar</button>
     </div>
 
-    <div class="card" data-categoria="colares sob encomenda">
-        <img src="Choker Pingentes Estrela Ponto de Luz Branco.webp" alt="Anel Solitário Cristal">
+    <div class="card" data-categoria="colares">
+        <img src="Choker Pingentes Estrela Ponto de Luz Branco.webp" alt="Choker Estrela Branco">
         <h3>Choker Pingentes Estrela Ponto de Luz Branco</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
+            <label>Tamanho:</label>
             <select onchange="atualizarPrecoProduto(this)">
-                <option value="40cm" data-preco="70.00">Tamanho 40cm - R$ 70,00</option>
+                <option value="40cm" data-preco="70.00">40cm - R$ 70,00</option>
             </select>
         </div>
         <p class="price">R$ 70,00</p>
         <button class="add-btn" onclick="addCarrinho(this)">Adicionar</button>
     </div>
 
-    <div class="card" data-categoria="colares sob encomenda">
-        <img src="Choker Pingentes Estrela e Lua com Pontos de Luz Coloridos.webp" alt="Anel Solitário Cristal">
+    <div class="card" data-categoria="colares">
+        <img src="Choker Pingentes Estrela e Lua com Pontos de Luz Coloridos.webp" alt="Choker Lua Estrela">
         <h3>Choker Pingentes Estrela e Lua com Pontos de Luz Coloridos</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
+            <label>Tamanho:</label>
             <select onchange="atualizarPrecoProduto(this)">
-                <option value="40cm" data-preco="70.00">Tamanho 40cm - R$ 70,00</option>
+                <option value="40cm" data-preco="70.00">40cm - R$ 70,00</option>
             </select>
         </div>
         <p class="price">R$ 70,00</p>
         <button class="add-btn" onclick="addCarrinho(this)">Adicionar</button>
     </div>
 
-    <div class="card" data-categoria="colares sob encomenda">
-        <img src="Choker Pingentes Quadrado Ponto de Luz Branco.webp" alt="Anel Solitário Cristal">
+    <div class="card" data-categoria="colares">
+        <img src="Choker Pingentes Quadrado Ponto de Luz Branco.webp" alt="Choker Quadrado">
         <h3>Choker Pingentes Quadrado Ponto de Luz Branco</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
+            <label>Tamanho:</label>
             <select onchange="atualizarPrecoProduto(this)">
-                <option value="40cm" data-preco="70.00">Tamanho 40cm - R$ 70,00</option>
+                <option value="40cm" data-preco="70.00">40cm - R$ 70,00</option>
             </select>
         </div>
         <p class="price">R$ 70,00</p>
         <button class="add-btn" onclick="addCarrinho(this)">Adicionar</button>
     </div>
 
-    <div class="card" data-categoria="colares sob encomenda">
-        <img src="Choker Pingentes Ponto de Luz Colorido.webp" alt="Anel Solitário Cristal">
+    <div class="card" data-categoria="colares">
+        <img src="Choker Pingentes Ponto de Luz Colorido.webp" alt="Choker Ponto de Luz">
         <h3>Choker Pingentes Ponto de Luz Colorido</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
+            <label>Tamanho:</label>
             <select onchange="atualizarPrecoProduto(this)">
-                <option value="40cm" data-preco="70.00">Tamanho 40cm - R$ 70,00</option>
+                <option value="40cm" data-preco="70.00">40cm - R$ 70,00</option>
             </select>
         </div>
         <p class="price">R$ 70,00</p>
         <button class="add-btn" onclick="addCarrinho(this)">Adicionar</button>
     </div>
 
-    <div class="card" data-categoria="colares sob encomenda">
-        <img src="Choker Pingentes Luas Fechadas.webp" alt="Anel Solitário Cristal">
+    <div class="card" data-categoria="colares">
+        <img src="Choker Pingentes Luas Fechadas.webp" alt="Choker Luas Fechadas">
         <h3>Choker Pingentes Luas Fechadas</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
+            <label>Tamanho:</label>
             <select onchange="atualizarPrecoProduto(this)">
-                <option value="40cm" data-preco="70.00">Tamanho 40cm - R$ 70,00</option>
+                <option value="40cm" data-preco="70.00">40cm - R$ 70,00</option>
             </select>
         </div>
         <p class="price">R$ 70,00</p>
         <button class="add-btn" onclick="addCarrinho(this)">Adicionar</button>
     </div>
 
-    <div class="card" data-categoria="colares sob encomenda">
-        <img src="Choker Pingentes Círculo Vazado e Fechado.webp" alt="Anel Solitário Cristal">
+    <div class="card" data-categoria="colares">
+        <img src="Choker Pingentes Círculo Vazado e Fechado.webp" alt="Choker Círculo">
         <h3>Choker Pingentes Círculo Vazado e Fechado</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
+            <label>Tamanho:</label>
             <select onchange="atualizarPrecoProduto(this)">
-                <option value="40cm" data-preco="70.00">Tamanho 40cm - R$ 70,00</option>
+                <option value="40cm" data-preco="70.00">40cm - R$ 70,00</option>
             </select>
         </div>
         <p class="price">R$ 70,00</p>
         <button class="add-btn" onclick="addCarrinho(this)">Adicionar</button>
     </div>
 
-    <div class="card" data-categoria="colares sob encomenda">
-        <img src="Choker Pingentes Estrelas Ponto de Luz Branco.webp" alt="Anel Solitário Cristal">
+    <div class="card" data-categoria="colares">
+        <img src="Choker Pingentes Estrelas Ponto de Luz Branco.webp" alt="Choker Estrelas">
         <h3>Choker Pingentes Estrelas Ponto de Luz Branco</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
+            <label>Tamanho:</label>
             <select onchange="atualizarPrecoProduto(this)">
-                <option value="40cm" data-preco="70.00">Tamanho 40cm - R$ 70,00</option>
+                <option value="40cm" data-preco="70.00">40cm - R$ 70,00</option>
             </select>
         </div>
         <p class="price">R$ 70,00</p>
         <button class="add-btn" onclick="addCarrinho(this)">Adicionar</button>
     </div>
 
-    <div class="card" data-categoria="colares sob encomenda">
-        <img src="Choker Pingentes Estrela Vazada e Fechada.webp" alt="Anel Solitário Cristal">
+    <div class="card" data-categoria="colares">
+        <img src="Choker Pingentes Estrela Vazada e Fechada.webp" alt="Choker Estrela Vazada">
         <h3>Choker Pingentes Estrela Vazada e Fechada</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
+            <label>Tamanho:</label>
             <select onchange="atualizarPrecoProduto(this)">
-                <option value="40cm" data-preco="70.00">Tamanho 40cm - R$ 70,00</option>
+                <option value="40cm" data-preco="70.00">40cm - R$ 70,00</option>
             </select>
         </div>
         <p class="price">R$ 70,00</p>
@@ -783,12 +701,13 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
     </div>
 
     <div class="card" data-categoria="berloques">
-        <img src="Berloque Aparador Fino Cravejado.webp" alt="Anel Solitário Cristal">
+        <img src="Berloque Aparador Fino Cravejado.webp" alt="Berloque Aparador Fino Cravejado">
         <h3>Berloque Aparador Fino Cravejado</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
+            <label>Disponibilidade:</label>
             <select onchange="atualizarPrecoProduto(this)">
-                <option value="" data-preco="40.00"> R$ 40,00</option>
+                <option value="" data-preco="40.00">R$ 40,00</option>
             </select>
         </div>
         <p class="price">R$ 40,00</p>
@@ -796,10 +715,11 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
     </div>
 
     <div class="card" data-categoria="berloques">
-        <img src="Berloque Bandeira Brasil Cravejada.webp" alt="Anel Solitário Cristal">
+        <img src="Berloque Bandeira Brasil Cravejada.webp" alt="Berloque Bandeira Brasil Cravejada">
         <h3>Berloque Bandeira Brasil Cravejada</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
+            <label>Disponibilidade:</label>
             <select onchange="atualizarPrecoProduto(this)">
                 <option value="" data-preco="50.00">R$ 50,00</option>
             </select>
@@ -809,68 +729,69 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
     </div>
 
     <div class="card" data-categoria="berloques">
-        <img src="Berloque Bota Country Lisa.webp" alt="Anel Solitário Cristal">
+        <img src="Berloque Bota Country Lisa.webp" alt="Berloque Bota Country Lisa">
         <h3>Berloque Bota Country Lisa</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
+            <label>Disponibilidade:</label>
             <select onchange="atualizarPrecoProduto(this)">
-                <option value="" data-preco="40.00"> R$ 40,00</option>
+                <option value="" data-preco="40.00">R$ 40,00</option>
             </select>
         </div>
         <p class="price">R$ 40,00</p>
         <button class="add-btn" onclick="addCarrinho(this)">Adicionar</button>
     </div>
 
-    <div class="card" data-categoria="alianças sob encomenda">
-        <img src="Par de Alianças de Compromisso em Prata 925 Detalhada 3mm + Caixinha.webp" alt="Anel Solitário Cristal">
-        <h3>Par de Alianças de Compromisso em Prata 925 Detalhada 3mm </h3>
+    <div class="card" data-categoria="alianças">
+        <img src="Par de Alianças de Compromisso em Prata 925 Detalhada 3mm + Caixinha.webp" alt="Par de Alianças">
+        <h3>Par de Alianças de Compromisso em Prata 925 Detalhada 3mm</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
-            <label>Consulte os tamanhos disponíveis.</label>
+            <label>Consulte os tamanhos:</label>
             <select onchange="atualizarPrecoProduto(this)">
-                <option value="" data-preco="279.90"> R$ 279,90</option>
+                <option value="" data-preco="279.90">R$ 279,90</option>
             </select>
         </div>
         <p class="price">R$ 279,90</p>
         <button class="add-btn" onclick="addCarrinho(this)">Adicionar</button>
     </div>
 
-    <div class="card" data-categoria="alianças sob encomenda">
-        <img src="Par De Aliança De Namoro Prata 925 Compromisso.webp" alt="Anel Solitário Cristal">
+    <div class="card" data-categoria="alianças">
+        <img src="Par De Aliança De Namoro Prata 925 Compromisso.webp" alt="Par De Aliança">
         <h3>Par De Aliança De Namoro Prata 925 Compromisso</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
-            <label>Consulte os tamanhos disponíveis.</label>
+            <label>Consulte os tamanhos:</label>
             <select onchange="atualizarPrecoProduto(this)">
-                <option value="" data-preco="249.90"> R$ 249,90</option>
+                <option value="" data-preco="249.90">R$ 249,90</option>
             </select>
         </div>
         <p class="price">R$ 249,90</p>
         <button class="add-btn" onclick="addCarrinho(this)">Adicionar</button>
     </div>
 
-    <div class="card" data-categoria="alianças sob encomenda">
-        <img src="Par de Alianças de Namoro em Prata 925 Quadrada 4mm.webp" alt="Anel Solitário Cristal">
-        <h3>Par de Alianças de Namoro em Prata 925 Quadrada 4mm </h3>
+    <div class="card" data-categoria="alianças">
+        <img src="Par de Alianças de Namoro em Prata 925 Quadrada 4mm.webp" alt="Par de Alianças">
+        <h3>Par de Alianças de Namoro em Prata 925 Quadrada 4mm</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
-            <label>Consulte os tamanhos disponíveis.</label>
+            <label>Consulte os tamanhos:</label>
             <select onchange="atualizarPrecoProduto(this)">
-                <option value="" data-preco="239.90"> R$ 239,90</option>
+                <option value="" data-preco="239.90">R$ 239,90</option>
             </select>
         </div>
         <p class="price">R$ 239,90</p>
         <button class="add-btn" onclick="addCarrinho(this)">Adicionar</button>
     </div>
 
-    <div class="card" data-categoria="alianças sob encomenda">
-        <img src="Par de Alianças de Namoro em Prata 925 Diamantado no meio 3mm e Zircônia.webp" alt="Anel Solitário Cristal">
+    <div class="card" data-categoria="alianças">
+        <img src="Par de Alianças de Namoro em Prata 925 Diamantado no meio 3mm e Zircônia.webp" alt="Par de Alianças">
         <h3>Par de Alianças de Namoro em Prata 925 Diamantado no meio 3mm e Zircônia</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
-            <label>Consulte os tamanhos disponíveis.</label>
+            <label>Consulte os tamanhos:</label>
             <select onchange="atualizarPrecoProduto(this)">
-                <option value="" data-preco="199.90"> R$ 199,90</option>
+                <option value="" data-preco="199.90">R$ 199,90</option>
             </select>
         </div>
         <p class="price">R$ 199,90</p>
