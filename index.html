@@ -231,7 +231,7 @@ header{
 <body>
 
 <div class="top-strip">
-PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
+PRATA 925 AUTÊNTICA  | ENVIOS PARA TODO BRASIL
 </div>
 
 <header style="flex-direction:column;align-items:center;text-align:center;">
@@ -247,10 +247,11 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
 </div>
 
 <div class="navbar">
-    <button onclick="filtrarCategoria('queima de estoque')">Queima de Estoque</button>
+  
     <button class="active" onclick="filtrarCategoria('todos')">Todos</button>
+  <button onclick="filtrarCategoria('queima de estoque')">Queima de Estoque</button>
     <button onclick="filtrarCategoria('pronto entrega')">Pronto Entrega</button>
-    <button onclick="filtrarCategoria('sob encomenda')">Sob Encomenda</button>
+''
     <button onclick="filtrarCategoria('brincos')">Brincos</button>
     <button onclick="filtrarCategoria('anéis')">Anéis</button>
     <button onclick="filtrarCategoria('alianças')">Alianças</button>
@@ -270,7 +271,49 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
 </div>
 
 <div class="container" id="listaProdutos">
+    
 
+<div class="card" data-categoria="anéis" data-status="sob encomenda">
+        <img src="Anel Solitário Laço Cravejado.webp" alt="Anel Letras Regulável">
+        <h3>Anel Solitário Laço Cravejado</h3>
+        <span class="status encomenda">Sob Encomenda</span>
+        <div class="variacao-tamanho">
+            <label>Consulte os tamanhos:</label>
+            <select onchange="atualizarPrecoProduto(this)">
+                <option value="" data-preco="50.00">R$ 50,00</option>
+            </select>
+        </div>
+        <p class="price">R$ 50,00</p>
+        <button class="add-btn" onclick="addCarrinho(this)">Adicionar</button>
+    </div>
+
+<div class="card" data-categoria="anéis" data-status="sob encomenda">
+        <img src="Anel Cruz Lisa.webp" alt="Anel Letras Regulável">
+        <h3>Anel Cruz Lisa</h3>
+        <span class="status encomenda">Sob Encomenda</span>
+        <div class="variacao-tamanho">
+            <label>Consulte os tamanhos:</label>
+            <select onchange="atualizarPrecoProduto(this)">
+                <option value="" data-preco="50.00">R$ 50,00</option>
+            </select>
+        </div>
+        <p class="price">R$ 50,00</p>
+        <button class="add-btn" onclick="addCarrinho(this)">Adicionar</button>
+    </div>
+
+        <div class="card" data-categoria="anéis" data-status="sob encomenda">
+        <img src="Anel 3 Zircônias Minimalista Cravejado.webp" alt="Anel Letras Regulável">
+        <h3>Anel 3 Zircônias Minimalista Cravejado</h3>
+        <span class="status encomenda">Sob Encomenda</span>
+        <div class="variacao-tamanho">
+            <label>Consulte os tamanhos:</label>
+            <select onchange="atualizarPrecoProduto(this)">
+                <option value="" data-preco="50.00">R$ 50,00</option>
+            </select>
+        </div>
+        <p class="price">R$ 50,00</p>
+        <button class="add-btn" onclick="addCarrinho(this)">Adicionar</button>
+    </div>
     
 
     <div class="card" data-categoria="anéis" data-status="sob encomenda">
@@ -306,7 +349,7 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <h3>Brinco Zircônia 3mm Redondo</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
-            <label>Tamanho:</label>
+            <label></label>
             <select onchange="atualizarPrecoProduto(this)">
                 <option value="P" data-preco="20.00">3mm - R$ 20,00</option>
             </select>
@@ -320,7 +363,7 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <h3>Brinco Zircônia 6mm</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
-            <label>Tamanho:</label>
+            <label></label>
             <select onchange="atualizarPrecoProduto(this)">
                 <option value="P" data-preco="25.00">6mm - R$ 25,00</option>
             </select>
@@ -334,7 +377,7 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <h3>Brinco Zircônia 10mm Quadrado</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
-            <label>Tamanho:</label>
+            <label></label>
             <select onchange="atualizarPrecoProduto(this)">
                 <option value="P" data-preco="45.00">10mm - R$ 45,00</option>
             </select>
@@ -348,7 +391,7 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <h3>Brinco Zircônia 8mm Redondo</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
-            <label>Tamanho:</label>
+            <label></label>
             <select onchange="atualizarPrecoProduto(this)">
                 <option value="P" data-preco="40.00">8mm - R$ 40,00</option>
             </select>
@@ -553,7 +596,7 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <h3>Choker Pingentes Estrela Ponto de Luz Colorido</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
-            <label>Tamanho:</label>
+            <label>Selecione o Tamanho:</label>
             <select onchange="atualizarPrecoProduto(this)">
                 <option value="40cm" data-preco="70.00">40cm - R$ 70,00</option>
             </select>
@@ -567,7 +610,7 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <h3>Choker Pingentes Coração Vazado e Fechado Pontos de Luz Coloridos</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
-            <label>Tamanho:</label>
+            <label>Selecione o Tamanho:</label>
             <select onchange="atualizarPrecoProduto(this)">
                 <option value="40cm" data-preco="70.00">40cm - R$ 70,00</option>
             </select>
@@ -581,7 +624,7 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <h3>Choker Pingentes Estrela Ponto de Luz Branco</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
-            <label>Tamanho:</label>
+            <label>Selecione o Tamanho:</label>
             <select onchange="atualizarPrecoProduto(this)">
                 <option value="40cm" data-preco="70.00">40cm - R$ 70,00</option>
             </select>
@@ -595,7 +638,7 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <h3>Choker Pingentes Estrela e Lua com Pontos de Luz Coloridos</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
-            <label>Tamanho:</label>
+            <label>Selecione o Tamanho:</label>
             <select onchange="atualizarPrecoProduto(this)">
                 <option value="40cm" data-preco="70.00">40cm - R$ 70,00</option>
             </select>
@@ -609,7 +652,7 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <h3>Choker Pingentes Quadrado Ponto de Luz Branco</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
-            <label>Tamanho:</label>
+            <label>Selecione o Tamanho:</label>
             <select onchange="atualizarPrecoProduto(this)">
                 <option value="40cm" data-preco="70.00">40cm - R$ 70,00</option>
             </select>
@@ -623,7 +666,7 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <h3>Choker Pingentes Ponto de Luz Colorido</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
-            <label>Tamanho:</label>
+            <label>Selecione o Tamanho:</label>
             <select onchange="atualizarPrecoProduto(this)">
                 <option value="40cm" data-preco="70.00">40cm - R$ 70,00</option>
             </select>
@@ -637,7 +680,7 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <h3>Choker Pingentes Luas Fechadas</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
-            <label>Tamanho:</label>
+            <label>Selecione o Tamanho:</label>
             <select onchange="atualizarPrecoProduto(this)">
                 <option value="40cm" data-preco="70.00">40cm - R$ 70,00</option>
             </select>
@@ -651,7 +694,7 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <h3>Choker Pingentes Círculo Vazado e Fechado</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
-            <label>Tamanho:</label>
+            <label>Selecione o Tamanho:</label>
             <select onchange="atualizarPrecoProduto(this)">
                 <option value="40cm" data-preco="70.00">40cm - R$ 70,00</option>
             </select>
@@ -665,7 +708,7 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <h3>Choker Pingentes Estrelas Ponto de Luz Branco</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
-            <label>Tamanho:</label>
+            <label>Selecione o Tamanho:</label>
             <select onchange="atualizarPrecoProduto(this)">
                 <option value="40cm" data-preco="70.00">40cm - R$ 70,00</option>
             </select>
@@ -679,7 +722,7 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <h3>Choker Pingentes Estrela Vazada e Fechada</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
-            <label>Tamanho:</label>
+            <label>Selecione o Tamanho:</label>
             <select onchange="atualizarPrecoProduto(this)">
                 <option value="40cm" data-preco="70.00">40cm - R$ 70,00</option>
             </select>
@@ -693,7 +736,7 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <h3>Berloque Aparador Fino Cravejado</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
-            <label>Disponibilidade:</label>
+            <label></label>
             <select onchange="atualizarPrecoProduto(this)">
                 <option value="" data-preco="40.00">R$ 40,00</option>
             </select>
@@ -707,7 +750,7 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <h3>Berloque Bandeira Brasil Cravejada</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
-            <label>Disponibilidade:</label>
+            <label></label>
             <select onchange="atualizarPrecoProduto(this)">
                 <option value="" data-preco="50.00">R$ 50,00</option>
             </select>
@@ -721,7 +764,7 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <h3>Berloque Bota Country Lisa</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
-            <label>Disponibilidade:</label>
+            <label></label>
             <select onchange="atualizarPrecoProduto(this)">
                 <option value="" data-preco="40.00">R$ 40,00</option>
             </select>
@@ -735,7 +778,7 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <h3>Par de Alianças de Compromisso em Prata 925 Detalhada 3mm</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
-            <label>Consulte os tamanhos disponíveis:</label>
+            <label>Consulte os tamanhos:</label>
             <select onchange="atualizarPrecoProduto(this)">
                 <option value="" data-preco="279.90">R$ 279,90</option>
             </select>
@@ -749,7 +792,7 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <h3>Par De Aliança De Namoro Prata 925 Compromisso</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
-            <label>Consulte os tamanhos disponíveis:</label>
+            <label>Consulte os tamanhos:</label>
             <select onchange="atualizarPrecoProduto(this)">
                 <option value="" data-preco="249.90">R$ 249,90</option>
             </select>
@@ -763,7 +806,7 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <h3>Par de Alianças de Namoro em Prata 925 Quadrada 4mm</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
-            <label>Consulte os tamanhos disponíveis:</label>
+            <label>Consulte os tamanhos:</label>
             <select onchange="atualizarPrecoProduto(this)">
                 <option value="" data-preco="239.90">R$ 239,90</option>
             </select>
@@ -777,7 +820,7 @@ PRATA 925 AUTÊNTICA ✨ | ENVIOS PARA TODO BRASIL
         <h3>Par de Alianças de Namoro em Prata 925 Diamantado no meio 3mm e Zircônia</h3>
         <span class="status encomenda">Sob Encomenda</span>
         <div class="variacao-tamanho">
-            <label>Consulte os tamanhos disponíveis:</label>
+            <label>Consulte os tamanhos:</label>
             <select onchange="atualizarPrecoProduto(this)">
                 <option value="" data-preco="199.90">R$ 199,90</option>
             </select>
