@@ -31,7 +31,20 @@
         <p class="price">R$ 50,00</p>
         <button type="button" class="add-btn" onclick="addCarrinho(this)">Adicionar ao pedido</button>
     </div>
-
+    <div class="card" data-categoria="braceletes" data-status="sob encomenda">
+        <img loading="lazy" src="Bracelete Infinito.webp" alt="Anel Letras Regulável">
+        <h3>Bracelete Infinito</h3>
+        <span class="status encomenda">Sob Encomenda</span>
+        <div class="variacao-tamanho">
+            <label>Diâmetro : 65mm</label>
+            <select onchange="atualizarPrecoProduto(this)">
+                <option value="" data-preco="40.00">R$ 40,00</option>
+            </select>
+        </div>
+        <p class="price">R$ 40,00</p>
+        <button type="button" class="add-btn" onclick="addCarrinho(this)">Adicionar ao pedido</button>
+    </div>
+    
     <div class="card" data-categoria="anéis" data-status="sob encomenda">
         <img loading="lazy" src="Anel Flor Cravejada Azul.webp" alt="Anel Flor Cravejada Azul">
         <h3>Anel Flor Cravejada Azul</h3>
