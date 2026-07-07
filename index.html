@@ -15,6 +15,21 @@
 <div class="catalog-summary"><span id="contadorProdutos"></span><span>Escolha os itens e finalize o pedido pelo WhatsApp.</span></div>
 <div class="container" id="listaProdutos">
 
+    <div class="card" data-categoria="anéis" data-status="sob encomenda">
+        <img loading="lazy" src="Anel Solitário Alto 5mm Azul Escuro.webp" alt="Anel Letras Regulável">
+        <h3>Anel Solitário Alto 5mm Azul Escuro</h3>
+        <span class="status encomenda">pronto entrega</span>
+        <div class="variacao-tamanho">
+            <label>Tamanho N18:</label>
+            <select onchange="atualizarPrecoProduto(this)">
+                <option value="" data-preco="30.00">R$ 30,00</option>
+            </select>
+        </div>
+        <p class="price">R$ 30,00</p>
+        <button type="button" class="add-btn" onclick="addCarrinho(this)">Adicionar ao pedido</button>
+    </div>
+
+  
                   <div class="card" data-categoria="pulseiras" data-status="sob encomenda">
         <img loading="lazy" src="Pulseira Coração Zircônia Prata 925.webp" alt="Anel Letras Regulável">
         <h3>Pulseira Coração Zircônia Prata 925</h3>
@@ -254,6 +269,7 @@
         <p class="price">R$ 50,00</p>
         <button type="button" class="add-btn" onclick="addCarrinho(this)">Adicionar ao pedido</button>
     </div>
+  
     <div class="card" data-categoria="braceletes" data-status="sob encomenda">
         <img loading="lazy" src="Bracelete Infinito.webp" alt="Anel Letras Regulável">
         <h3>Bracelete Infinito</h3>
