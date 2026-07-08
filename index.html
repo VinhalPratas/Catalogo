@@ -127,7 +127,37 @@
         <p class="price">R$ 15,00</p>
         <button type="button" class="add-btn" onclick="addCarrinho(this)">Adicionar ao pedido</button>
     </div>
+<div class="card" data-categoria="alianças" data-status="sob encomenda">
+        <img loading="lazy" src="Alianca_Tradicional_4mm.webp" alt="Aliança Tradicional 4mm">
+        <h3>Aliança Tradicional Prata 925 4mm</h3>
+        <span class="status encomenda">Sob encomenda</span>
+        <div class="variacao-tamanho">
+            <label>Selecione o Tamanho:</label>
+            <select onchange="atualizarPrecoProduto(this)">
+                <option value="16" data-preco="45.00">Tamanho 16 - R$ 45,00</option>
+                <option value="18" data-preco="45.00">Tamanho 18 - R$ 45,00</option>
+                <option value="20" data-preco="45.00">Tamanho 20 - R$ 45,00</option>
+            </select>
+        </div>
+        <p class="price">R$ 45,00</p>
+        <button type="button" class="add-btn" onclick="addCarrinho(this)">Adicionar ao pedido</button>
+    </div>
 
+    <div class="card" data-categoria="alianças" data-status="sob encomenda">
+        <img loading="lazy" src="Alianca_Diamantada_6mm.webp" alt="Aliança Diamantada 6mm">
+        <h3>Aliança Diamantada com Friso 6mm</h3>
+        <span class="status encomenda">Sob encomenda</span>
+        <div class="variacao-tamanho">
+            <label>Selecione o Tamanho:</label>
+            <select onchange="atualizarPrecoProduto(this)">
+                <option value="14" data-preco="60.00">Tamanho 14 - R$ 60,00</option>
+                <option value="17" data-preco="60.00">Tamanho 17 - R$ 60,00</option>
+                <option value="22" data-preco="60.00">Tamanho 22 - R$ 60,00</option>
+            </select>
+        </div>
+        <p class="price">R$ 60,00</p>
+        <button type="button" class="add-btn" onclick="addCarrinho(this)">Adicionar ao pedido</button>
+    </div>
 </div>
 
 <div class="empty-state" id="estadoVazio">Nenhum produto encontrado. Tente outra busca ou categoria.</div>
